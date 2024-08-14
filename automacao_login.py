@@ -28,8 +28,8 @@ def selenium_login():
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
 
-    # Caminho para o driver do Chrome
-    service = Service(executable_path='/caminho/para/chromedriver')  # Substitua pelo caminho para o chromedriver
+    # Caminho para o driver do Chrome (ajuste conforme o local do chromedriver no seu sistema)
+    service = Service(executable_path='./chromedriver')  # Substitua pelo caminho correto
 
     # Inicializar o driver do navegador
     driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -139,4 +139,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
