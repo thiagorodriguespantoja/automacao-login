@@ -2,8 +2,21 @@ import requests
 import time
 import random
 from fake_useragent import UserAgent
+from dotenv import load_dotenv
+import os
 
-def login(username, password):
+# Carregar variáveis de ambiente do arquivo .env
+load_dotenv()
+
+def login():
+    # Recuperando credenciais das variáveis de ambiente
+    username = os.getenv('ONABET_USERNAME')
+    password = os.getenv('ONABET_PASSWORD')
+
+    if not username or not password:
+        print("Erro: Usuário ou senha não fornecidos.")
+        return
+    
     cookies = {}
     headers = {}
     
@@ -39,4 +52,4 @@ def login(username, password):
         print("Erro no login:", response.text)
 
 # Chamada da função login
-login("seu_usuario", "sua_senha")
+login()
